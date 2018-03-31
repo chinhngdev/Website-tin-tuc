@@ -6,8 +6,8 @@ class C_tintuc{
 	{
 		$m_tintuc = new M_tintuc();
 		$menu = $m_tintuc->getMenu();
-		$theloai = $m_tintuc->getTintuc();
-		return array('menu'=>$menu,'theloai'=>$theloai);
+		$tintuc = $m_tintuc->getTintuc();
+		return array('menu'=>$menu,'tintuc'=>$tintuc);
 	}
 }
 

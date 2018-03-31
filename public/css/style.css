@@ -34,7 +34,7 @@ body {
 
 
 
-#menu li{
+#menu ul li{
 	color: #f1f1f1;
 	display: inline-block;
 	height: 40px;
@@ -43,37 +43,23 @@ body {
 
 }
 
-#menu li {
-  position: relative;
- }
 
 
-
-#menu li a{
+.menu1 a {
 	color: #f1f1f1;
 	display: block;
 	text-transform: capitalize;
-}
-
-#menu a:hover{
-	background: #f1f1f1;
-	color: #333;
-	transition: all 0.25s;
-}
-
-#menu .sub-menu li a{
 	text-decoration: none;
 }
 
-#menu .sub-menu {
-  display: none;
-  position: absolute;
+.menu1 a:hover{
+	background: #f1f1f1;
+	color: #333;
+	transition: all 0.25s;
+	display: block;
 }
 
-#menu ul li:hover .sub-menu {
- display: block;
- background-color:#8B0000; 
-}
+
 
 
 /*space*/
@@ -84,6 +70,7 @@ body {
 
 
 /*content*/
+
 /*left*/
 #left {
 	float: left;
@@ -99,9 +86,28 @@ body {
 	width: 65%;
 }
 
+#center{
+
+}
 /*mag*/
 #mag {
 	width: 100%;
+	height: 300px;
+	display: inline-block ;
+	overflow: hidden;
+	
+}
+
+#tieude{
+	background-color: #F0a62b;
+	text-decoration: none;
+}
+
+
+/*anh*/
+#anh img{
+	height: 200px;
+	width: 300px;
 }
 
 /*slide*/
@@ -110,7 +116,11 @@ body {
 	
 }
 
-
+#trong{
+	height: 5px;
+	width: 100%;
+	background-color: white;
+}
 
 /*right*/
 #right {

@@ -10,7 +10,7 @@ class M_tintuc extends database{
 
 	// Lấy dữ liệu từ database cho ra content
 	function getTintuc(){
-		$sql = "SELECT * from theloai";
+		$sql = "SELECT * FROM tintuc";
 		$this->setQuery($sql);
 		return $this->loadAllRows();
 	}
