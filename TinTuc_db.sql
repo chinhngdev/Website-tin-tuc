@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: localhost
--- Thời gian đã tạo: Th3 31, 2018 lúc 04:48 AM
+-- Thời gian đã tạo: Th3 31, 2018 lúc 05:28 AM
 -- Phiên bản máy phục vụ: 10.1.31-MariaDB
 -- Phiên bản PHP: 5.6.34
 
@@ -21,6 +21,109 @@ SET time_zone = "+00:00";
 --
 -- Cơ sở dữ liệu: `WebsiteTinTuc`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `loaitin`
+--
+
+CREATE TABLE `loaitin` (
+  `idLoaiTin` int(11) NOT NULL,
+  `idTheLoai` int(11) DEFAULT NULL,
+  `ten` varchar(255) COLLATE utf8_vietnamese_ci DEFAULT NULL,
+  `tenkhongdau` varchar(255) COLLATE utf8_vietnamese_ci DEFAULT NULL,
+  `create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `update_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `loaitin`
+--
+
+INSERT INTO `loaitin` (`idLoaiTin`, `idTheLoai`, `ten`, `tenkhongdau`, `create_at`, `update_at`) VALUES
+(1, 1, 'Giáo dục', 'Giao-Duc', '2018-03-29 04:09:35', '0000-00-00 00:00:00'),
+(2, 1, 'Nhịp điệu trẻ', 'Nhip-Dieu-Tre', '2018-03-29 04:09:35', '0000-00-00 00:00:00'),
+(3, 1, 'Du lịch', 'Du-Lich', '2018-03-29 04:10:52', '0000-00-00 00:00:00'),
+(4, 1, 'Du Học', 'Du-Hoc', '2018-03-29 04:10:52', '0000-00-00 00:00:00'),
+(5, 2, 'Cuộc sống đó đây', 'Cuoc-Song-Do-Day', '2018-03-29 04:13:37', '0000-00-00 00:00:00'),
+(7, 2, 'Người Việt 5 Châu', 'Nguoi-Viet-5-Chau', '2018-03-29 04:15:11', '0000-00-00 00:00:00'),
+(8, 2, 'Phân tích', 'Phan-Tich', '2018-03-29 04:15:11', '0000-00-00 00:00:00'),
+(9, 3, 'Chứng khoán', 'Chung-Khoan', '2018-03-29 04:16:12', '0000-00-00 00:00:00'),
+(10, 3, 'Bất động sản', 'Bat-dong-san', '2018-03-29 04:16:12', '0000-00-00 00:00:00'),
+(11, 3, 'Doanh nhân', 'Doanh-Nhan', '2018-03-29 04:17:14', '0000-00-00 00:00:00'),
+(12, 3, 'Quốc Tế', 'Quoc-Te', '2018-03-29 04:17:14', '0000-00-00 00:00:00'),
+(13, 4, 'Âm Nhạc', 'Am-Nhac', '2018-03-31 01:56:22', '0000-00-00 00:00:00'),
+(14, 4, 'Thời Trang', 'Thoi-Trang', '2018-03-31 01:56:35', '0000-00-00 00:00:00'),
+(15, 4, 'Điện Ảnh', 'Dien-Anh', '2018-03-31 01:56:40', '0000-00-00 00:00:00'),
+(16, 4, 'Mỹ Thuật', 'My-Thuat', '2018-03-31 01:56:44', '0000-00-00 00:00:00'),
+(17, 5, 'Bóng rổ', 'Bong-Ro', '2018-03-31 02:25:59', '0000-00-00 00:00:00'),
+(18, 5, 'Bóng đá', 'Bong-Da', '2018-03-31 02:25:26', '0000-00-00 00:00:00'),
+(20, 6, 'Hình Sự', 'Hinh-Su', '2018-03-31 01:58:28', '0000-00-00 00:00:00'),
+(21, 6, 'Tư Vấn', 'Tu-Van', '2018-03-31 02:00:26', '0000-00-00 00:00:00'),
+(22, 7, 'Gia đình', 'Gia-Dinh', '2018-03-31 02:00:44', '0000-00-00 00:00:00'),
+(23, 7, 'Sức khoẻ', 'Suc-Khoe', '2018-03-31 02:00:47', '0000-00-00 00:00:00'),
+(24, 7, 'Ẩm Thực', 'Am-Thuc', '2018-03-31 02:00:50', '0000-00-00 00:00:00'),
+(25, 7, 'Cửa Sổ Blog', 'Cua-So-Blog', '2018-03-31 02:01:51', '0000-00-00 00:00:00'),
+(26, 8, 'Môi Trường', 'Moi-Truong', '2018-03-31 02:03:41', '0000-00-00 00:00:00'),
+(27, 8, 'Thiên Nhiên', 'Thien-Nhien', '2018-03-31 02:05:17', '0000-00-00 00:00:00'),
+(28, 8, 'Công Nghệ Mới', 'Cong-Nghe-Moi', '2018-03-31 02:06:02', '0000-00-00 00:00:00'),
+(29, 9, 'Sản Phẩm Mới', 'San-Pham-Moi', '2018-03-31 02:06:32', '0000-00-00 00:00:00'),
+(30, 9, 'Kinh Nghiệm', 'Kinh-Nghiem', '2018-03-31 02:06:37', '0000-00-00 00:00:00'),
+(31, 9, 'Hacker & Virus', 'Hacker---Virus', '2018-03-31 02:07:15', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `slide`
+--
+
+CREATE TABLE `slide` (
+  `idSlide` int(11) NOT NULL,
+  `ten` varchar(255) COLLATE utf8_vietnamese_ci DEFAULT NULL,
+  `hinh` varchar(255) COLLATE utf8_vietnamese_ci DEFAULT NULL,
+  `link` varchar(255) COLLATE utf8_vietnamese_ci DEFAULT NULL,
+  `create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `update_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `slide`
+--
+
+INSERT INTO `slide` (`idSlide`, `ten`, `hinh`, `link`, `create_at`, `update_at`) VALUES
+(1, 'Phát hiện loài ếch mới ở biên giới Venezuela và Colombia', '<img src=\"https://i-vnexpress.vnecdn.net/2018/03/30/000-12C75Q-3802-1522392409.jpg\" alt=\"\">\r\n<img src=\"https://i-vnexpress.vnecdn.net/2018/03/30/000-12C7WY-9060-1522392409.jpg\" alt=\"\">', NULL, '2018-03-31 02:46:58', '0000-00-00 00:00:00'),
+(2, 'Bạn đã biết địa điểm check-in hot nhất Sài Gòn hè này: khu tổ hợp mới toanh cực “chất” ở quận 2!', '<img src=\"https://kenh14cdn.com/2018/3/25/img0240-1521986438836158791294.jpg\" alt=\"\">\r\n<img src=\"https://kenh14cdn.com/2018/3/25/img0274-1521986438850872268360.jpg\" alt=\"\">', NULL, '2018-03-31 02:47:46', '0000-00-00 00:00:00'),
+(3, 'FLC Sầm Sơn sẵn sàng đón 5 triệu du khách 2018', '<img src=\"https://vnn-imgs-f.vgcloud.vn/2018/03/30/10/flc-sam-son-san-sang-don-5-trieu-du-khach-2018-2.jpg\" alt=\"\">\r\n<img src=\"https://vnn-imgs-f.vgcloud.vn/2018/03/30/10/flc-sam-son-san-sang-don-5-trieu-du-khach-2018-3.jpg\" alt=\"\">', NULL, '2018-03-31 02:48:20', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `theloai`
+--
+
+CREATE TABLE `theloai` (
+  `idTheLoai` int(11) NOT NULL,
+  `ten` varchar(255) COLLATE utf8_vietnamese_ci DEFAULT NULL,
+  `tenkhongdau` varchar(255) COLLATE utf8_vietnamese_ci DEFAULT NULL,
+  `create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `update_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `theloai`
+--
+
+INSERT INTO `theloai` (`idTheLoai`, `ten`, `tenkhongdau`, `create_at`, `update_at`) VALUES
+(1, 'Xã hội', 'Xa-Hoi', '2018-03-29 03:54:32', '0000-00-00 00:00:00'),
+(2, 'Thế giới', 'The-Gioi', '2018-03-29 03:55:04', '0000-00-00 00:00:00'),
+(3, 'Kinh doanh', 'Kinh-Doanh', '2018-03-29 03:55:25', '0000-00-00 00:00:00'),
+(4, 'Văn hoá', 'Van-Hoa', '2018-03-29 03:56:06', '0000-00-00 00:00:00'),
+(5, 'Thể thao', 'The-Thao', '2018-03-29 03:56:06', '0000-00-00 00:00:00'),
+(6, 'Pháp Luật', 'Phap-Luat', '2018-03-29 03:57:34', '0000-00-00 00:00:00'),
+(7, 'Đời Sống', 'Doi-Song', '2018-03-29 03:57:34', '0000-00-00 00:00:00'),
+(8, 'Khoa Học', 'Khoa-Hoc', '2018-03-29 03:58:14', '0000-00-00 00:00:00'),
+(9, 'Vi Tính', 'Vi-Tinh', '2018-03-29 03:58:14', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -65,9 +168,52 @@ INSERT INTO `tintuc` (`idTinTuc`, `tieude`, `tieudekhongdau`, `tomtat`, `noidung
 (18, 'Độc đáo với những món ngon đặc sản Lào Cai', 'doc-dao-voi-nhung-mon-ngon-dac-san-lao-cai', 'Lào Cai không chỉ nổi tiếng bởi cảnh sắc thiên nhiên hùng vĩ mà còn ghi đậm dấu ấn bởi nhiều món ngon đặc sản nổi tiếng khắp gần xa. Ẩm thực Lào Cai vô cùng phong phú và đa dạng cho mọi người lựa chọn.', 'Thắng cố ngựa Bắc Hà\r\n\r\nKhông thể bỏ qua trong danh sách này đó chính là thắng cố Bắc Hà, một món ăn nổi tiếng trong ẩm thực đặc sản của Lào Cai. Thắng cố ngựa Bắc Hà mang một vị riêng không thể trộn lẫn vì được chế biến từ nội tạng của con ngựa. Gia vị kèm theo không thể thiếu gồm thảo quả, địa liền cùng với hạt dổi, củ sả, quế chi… được tẩm ướp với thịt trước lúc đem xào rồi chế nước hầm nhừ trong chảo lớn. Chính bởi vậy, đây được coi là món ăn ngon nên thử đầu tiên nếu bạn có cơ hội đến với Lào Cai.\r\n\r\nTừ hương vị đặc trưng quyến rũ, chảo thắng cố sôi lục bục trên bếp lửa hồng nhìn khá bắt mắt bởi những miếng thịt, miếng mỡ vàng nhạt, đoạn lòng trăng trắng điểm xuyết những lá hành xanh ngắt dậy mùi thơm của thịt, của gia vị làm ấm lại không gian giữa tiết trời se lạnh. Bát thắng cố trở nên lôi cuốn hơn khi được nhấp với thứ rượu thóc San Lùng (Bát Xát), rượu ngô Bản Phố (Bắc Hà) được chưng cất bởi thứ men làm từ cây hồng mi khiến thực khách đắm chìm trong tinh hoa của đất trời ban tặng.\r\n\r\nThịt lợn muối\r\n\r\nTrong các món ngon được chế biến từ thịt lợn thì thịt lợn muối là một trong những món ngon trong danh mục ẩm thực của đồng bào vùng cao Lào Cai. Khi sử dụng thịt lợn muối có thể rang hay nướng tuỳ theo khẩu vị của từng gia đình. Khi ăn, chúng ta có những cảm giác khác nhau. Có vị cay của giềng và ớt, vị thơm của quế, vị hơi chát của lá mít và lá trầu không.\r\n\r\nĐồng thời, một vị đặc trưng của thịt lợn muối là vị chua hoà lẫn vị mặn của muối, miếng thịt giòn và rắn chắc. Thịt lợn muối làm giảm đi độ béo và ngấy của mỡ. Khi ăn, chúng ta có thể lấy lại cảm giác về vị giác khi đã ăn quá nhiều đồ ăn khác mà không có cảm giác ngon. Thịt lợn muối là món ăn dân dã của người dân vùng cao đặc biệt là người Tày ở Bảo Yên.\r\n\r\nThịt lợn cắp nách\r\n\r\n \r\nThịt lợn cắp nách luôn giữ được sức hút của mình bởi sự thơm ngon, đậm đà của một món ăn đặc trưng của các dân tộc sinh sống tại Sapa. Nhiều món ăn chế biến từ thịt lợn cắp nách thơm ngon, giàu dinh dưỡng, như món nướng, luộc, dồi, giả cầy, sườn nấu canh, lạp xường, thịt hun khói. Rồi lợn sữa quay, vịt quay, thơm ngon tạo nên không khí nhộn nhịp, sôi động.', '<img src=\"http://imgs.vietnamnet.vn/Images/2017/09/14/16/20170914160845-mon-ngon-lao-cai-1.jpg\" alt=\"\">\r\n<img src=\"http://imgs.vietnamnet.vn/Images/2017/09/14/16/20170914160845-mon-ngon-lao-cai-2.jpg\" alt=\"\">', 24, '2018-03-31 02:40:27', '0000-00-00 00:00:00'),
 (19, 'Nguyên nhân nào khiến các hacker tạo virus?', 'nguyen-nhan-nao-khien-cac-hacker-tao-virus', 'Nguyên nhân mà các tay hacker viết virus có nhiều và không phải lúc nào cũng đơn giản như nhiều người nghĩ. Đó có thể vì tiền, vì sĩ diện, khoe khoang, hay đơn giản là để… lòe gái.', 'Mấy con virus “nội” trong thời gian qua như gaixinh chẳng hạn thì động lực chủ yếu nghiêng về những nguyên nhân sau. \r\n\r\nNếu là mấy năm trước thì các nguyên nhân viết virus không có nhiều, đa phần không phải vì tiền. Thời gian qua đi khiến cho các nguyên nhân này cũng đa dạng hơn rất nhiều. Những kẻ viết virus và các loại mã độc hại đã không còn “vô hại” nữa, chúng thực sự nguy hiểm và gây thiệt hại lớn cho người dùng và doanh nghiệp. \r\n\r\nThiệt hại kinh tế \r\n\r\nNếu ai đó nghĩ rằng máy tính nhiễm virus dù nặng tới đâu thì chỉ việc cài lại hệ điều hành là xong, và chẳng mất mát gì thì người đó đã nhầm. Trung tâm an ninh mạng BKIS vừa công bố báo cáo nói rằng mỗi tháng người dùng và doanh nghiệp Việt Nam mất tới… 327 tỉ đồng vì virus máy tính. Con số này có thể làm giật mình rất nhiều người, thậm chí là cả những người trong ngành. Nguyên nhân chủ yếu vẫn là do ý thức người dùng chưa cao, máy tính không được cài đặt phần mềm diệt virus, hoặc cài đặt nhưng không hiệu quả, không cập nhật thường xuyên, dẫn tới tình trạng virus phát tán không thể kiểm soát.\r\n\r\nCũng theo BKIS, có tới 98% người dùng phải cài lại máy tính khi bị nhiễm virus ở mức không thể khôi phục được, và nguồn lây lan chủ yếu là qua USB. Khi người dùng phải cài lại máy tính, công việc của họ sẽ bị ảnh hưởng, đó là chưa kể tới nguy cơ mất mát dữ liệu, mà nếu là dữ liệu quan trọng thì thiệt hại còn nghiêm trọng hơn rất nhiều. Ở cấp độ lớn hơn, khi nhân viên không thể làm việc được bởi virus thì hoạt động sản xuất kinh doanh của doanh nghiệp sẽ bị ảnh hưởng. \r\n\r\nĐó là ở Việt Nam, còn trên thế giới thiệt hại do virus máy tính gây ra ước tính lên tới hàng chục tỉ USD mỗi năm. Đó là chưa kể mỗi doanh nghiệp, nhất là các doanh nghiệp lớn thường phải chi vài phần trăm doanh thu mỗi năm cho công tác bảo mật và phòng chống virus. Tại sao các doanh nghiệp đã chi rất nhiều tiền cho công tác này mà vẫn không hiệu quả? Nguyên nhân thì có nhiều nhưng để đảm bảo một hệ thống an toàn thì toàn bộ những thành phần của hệ thống đó cũng phải đảm bảo. Nói một cách dễ hiểu thì nhân tố con người vẫn là quan trọng nhất. Một hệ thống dù có an toàn đến đâu nhưng người dùng không có ý thức hoặc không đủ kiến thức sử dụng thì trước sau cũng bị đổ vỡ. \r\n\r\nĐi tìm nguyên nhân... \r\n\r\nBài viết này không có ý định đề cập tới nguyên nhân lây lan của virus máy tính, mà chỉ đề cập tới một số lý do và chủ đích chính của những kẻ tạo ra loại phần mềm độc hại này. Ai đó đã nói rằng lý do mà hacker viết virus cũng đa dạng, muôn hình muôn trạng như chính bản chất của những gã này. Đó có thể là bực tức về vấn đề gì đó, hay vì viết virus cho vui, hay vì bản chất “lãng mạn”, thích khoe khoang. Ở mức độ “nghiêm túc” hơn thì nguyên nhân có thể vì tiền, chính trị, gián điệp, thi thố tài năng, hoặc để loại trừ đối thủ. \r\n\r\nVì tiền \r\n\r\nĐây là một trong những lý do phổ biến nhất hiện nay để hacker viết virus. Tiền bao giờ cũng là động lực và là đích ngắm của phần lớn hacker, nếu không nói là gần như tất cả (tất nhiên đó là những hacker “mũ đen”). Những con virus được viết theo mục đích này thường chứa trong mình cơ chế thu thập dữ liệu, thường là dữ liệu nhạy cảm trên máy tính nạn nhân. Đó có thể là thông tin riêng tư (dùng để bán) hoặc số thẻ tín dụng, tài khoản ngân hàng, nói chung là tất cả thông liên quan có thể kiếm ra tiền. Những máy tính bị nhiễm loại virus này sẽ bị điều khiển từ xa và có thể tạo thành những mạng máy tính ma (botnet) để phục vụ âm mưu đen tối của tin tặc. \r\n\r\n“Tự sướng” \r\n\r\nNhiều kẻ tạo ra virus vì những lý do chả đâu vào đâu. Một trong những lý do này là tâm lý “tự sướng”, thấy tên mình được “vinh danh” thì càng khoái hơn, thậm chí khi bị cơ quan pháp luật sờ gáy cũng vẫn cảm thấy ánh hào quang bao quanh mình một cách mê muội. Đây là thể loại virus chủ yếu là phá hoại chứ không gây thiệt hại nhiều về kinh tế. Những kẻ này thường nghĩ rằng mình không được xã hội coi trọng tài năng, và muốn khẳng định và chứng minh bản thân bằng cách gây ra thiệt hại nào đó. \r\n\r\nNhiễm phim ảnh \r\n\r\nThuở bé xem nhiều phim ảnh viễn tưởng về tội phạm máy tính khiến cho những kẻ viết virus thuộc thể loại này khá hài hước một cách tội nghiệp. Cũng như tâm lý “tự sướng”, những kẻ này muốn khoe khoang bản thân, chứng tỏ mình là hacker máy tính rồi tự huyễn hoặc bằng cảm giác ngưỡng mộ của những người xung quanh. Chính vì thích khoe khoang mà những kẻ này rất dễ bị phát hiện và bị cảnh sát tóm. \r\n\r\nGián điệp \r\n\r\nCách thức hoạt động của loại hình virus này chủ yếu tích hợp sẵn vào phần mềm rồi bán cho doanh nghiệp, các tổ chức, cơ quan nhà nước, và chính phủ. Virus, sâu máy tính, Trojan và các phần mềm cửa sau (backdoor) thường được sử dụng cho mục đích gián điệp trong thời đại công nghệ hiện nay. Ngoài phần mềm backdoor, người ta còn hoài nghi về những loại backdoor phần cứng cực kỳ nguy hiểm và rất khó phát hiện khác. \r\n\r\nThanh toán lẫn nhau \r\n\r\nCũng như thế giới thực, thế giới ngầm của hacker cũng được phân chia thành các địa phận riêng biệt. “Nước sông không phạm nước giếng” – đó là nguyên tắc của thế giới ảo này, nhưng đôi khi cũng xảy ra những vụ “thanh toán” lẫn nhau, và vũ khí được sử dụng là các con virus vô cùng độc hại, làm tê liệt hệ thống máy tính của đối phương. \r\n\r\nBảo kê \r\n\r\nVới mô hình hoạt động như các băng đảng Mafia Ý ngày xưa, các băng đảng hacker hiện nay cũng tìm cách tiếp cận doanh nghiệp rồi gợi ý họ bỏ tiền ra sử dụng dịch vụ bảo vệ của chúng. Nếu doanh nghiệp “cứng đầu” thì ngay lập tức hệ thống máy tính của họ sẽ bị đánh sập cho tới khi nào chịu khuất phục thì thôi. Ngoài các cách thức đột nhập khác thì virus cũng được sử dụng như một công cụ đắc lực cho hành vi đe dọa bất hợp pháp này.', NULL, 31, '2018-03-31 02:43:20', '0000-00-00 00:00:00');
 
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `users`
+--
+
+CREATE TABLE `users` (
+  `idUser` int(11) NOT NULL,
+  `name` varchar(255) COLLATE utf8_vietnamese_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8_vietnamese_ci DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8_vietnamese_ci DEFAULT NULL,
+  `create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `update_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `users`
+--
+
+INSERT INTO `users` (`idUser`, `name`, `email`, `password`, `create_at`, `update_at`) VALUES
+(1, 'Nguyễn Việt Hùng', 'hungnv@wru.vn', '123456', '2018-03-29 03:20:12', '0000-00-00 00:00:00'),
+(2, 'Lý Tuấn Linh', 'linhlt52@wru.vn', '654321', '2018-03-29 03:20:56', '0000-00-00 00:00:00'),
+(3, 'Đào Đức Anh', 'anhdd52@wru.vn', '321654', '2018-03-29 03:21:54', '0000-00-00 00:00:00');
+
 --
 -- Chỉ mục cho các bảng đã đổ
 --
+
+--
+-- Chỉ mục cho bảng `loaitin`
+--
+ALTER TABLE `loaitin`
+  ADD PRIMARY KEY (`idLoaiTin`),
+  ADD KEY `idTheLoai` (`idTheLoai`);
+
+--
+-- Chỉ mục cho bảng `slide`
+--
+ALTER TABLE `slide`
+  ADD PRIMARY KEY (`idSlide`);
+
+--
+-- Chỉ mục cho bảng `theloai`
+--
+ALTER TABLE `theloai`
+  ADD PRIMARY KEY (`idTheLoai`);
 
 --
 -- Chỉ mục cho bảng `tintuc`
@@ -77,8 +223,20 @@ ALTER TABLE `tintuc`
   ADD KEY `idLoaiTin` (`idLoaiTin`);
 
 --
+-- Chỉ mục cho bảng `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`idUser`);
+
+--
 -- Các ràng buộc cho các bảng đã đổ
 --
+
+--
+-- Các ràng buộc cho bảng `loaitin`
+--
+ALTER TABLE `loaitin`
+  ADD CONSTRAINT `loaitin_ibfk_1` FOREIGN KEY (`idTheLoai`) REFERENCES `theloai` (`idTheLoai`);
 
 --
 -- Các ràng buộc cho bảng `tintuc`
