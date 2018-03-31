@@ -111,13 +111,13 @@
               foreach ($tintuc as $tt){
                 ?>
                 <div id="mag" class="col-sm-12">
-                  <a id="tieude"><h2>Thể loại</h2></a>
+                  <a id="tieude"><h2><?=$tt->ten?></h2></a>
                   <div  id="anh" class="col-sm-5">
-                   <img src="public/img/noidung2.jpg">
+                   <img src="public/img/<?=$tt->hinh?>">
                   </div>
                   <div class="col-sm-7">
                     <a href="#" class="tieude"><h4><?=$tt->tieude?></h4></a>
-                    <p class="noidung">Nội dung</p>
+                    <p class="noidung"><?=$tt->tomtat?></p>
                     <button type="button" class="btn">Chi tiết</button>
                   </div>
                 </div>
@@ -128,7 +128,7 @@
              </div>
              
     <div id="quangcao" class="col-sm-3">
-      <img src="public/img/quangcao1.png">
+        <img src="public/img/quangcao1.png" alt="quangcao">
     </div>
   
   <div id="footer">
