@@ -1,0 +1,152 @@
+/*==Reset CSS==*/
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/*==Style cơ bản cho website==*/
+body {
+  font-family: sans-serif;
+  color: none;
+}
+
+
+.header {
+	width: 100%;
+	background-color:#f0a62b;
+	z-index: 100;
+	position: relative;
+}
+
+/*logo*/
+.logo {
+	margin-left: 2%;
+}
+
+
+/*menu*/
+.menu ul {
+	background-color: #a70e1a;
+	text-align: center;
+	list-style-type: none;
+}
+
+.menu li{
+	color: #f1f1f1;
+	display: inline-block;
+	height: 40px;
+	width: 120px;
+	line-height: 40px;
+}
+
+.menu li a{
+	color: #f1f1f1;
+	display: block;
+	text-decoration: none;
+}
+
+.menu a:hover{
+	background: #980d17;
+	color: #f1f1f1;
+}
+
+#space{
+	width: 100%
+	height: auto;
+	text-align: center;
+	clear:both;
+}
+
+.content{
+	
+}
+/*left*/
+.left {
+	float: left;
+	width: 15%;
+	background-color: none;
+	height: 60px;
+}
+
+
+/*center*/
+.center {
+	background: none;
+	width: 70%;
+	background-color: none;
+	height: auto;
+	display: inline-block ;
+	overflow: hidden;
+	border: 1px solid #dddfe2;
+    box-shadow: 2px 3px #e9ebee;
+    margin: 10px;
+	float: left;
+
+}
+
+/*menu*/
+.sub-menu{
+	border-bottom: 1px solid #dddfe2;
+}
+.sub-menu ul {
+	background-color: white;
+	list-style-type: none;
+}
+
+.sub-menu li{
+	color: black;
+	display: inline-block;
+	height: 40px;
+	width: 80px;
+	line-height: 40px;
+}
+
+.sub-menu li a{
+	color: black;
+	display: block;
+	text-decoration: none;
+	text-align: center;
+}
+
+.sub-menu a:hover{
+	color: black;
+	border-bottom: 2px solid #a70e1a;
+}
+
+/*tieude*/
+#tieude a {
+	text-decoration: none;
+}
+#tieude{
+	width: 60%;
+	border-bottom: 1px solid #dddfe2;
+}
+#noidung{
+	width: 70%;
+	height: auto;
+	float: left;
+}
+#quangcao{
+	width: 30%;
+	text-align: center;
+	float: right;
+}
+
+/*right*/
+.right {
+	width: 15%;
+	background-color: none;
+	height: 60px;
+	float: left;
+}
+
+
+/*footer*/
+.footer{
+	width: 100%;
+	height: auto;
+	text-align: center;
+	background-color: #f0a62b;
+	clear:both;
+}
+
