@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: localhost
--- Thời gian đã tạo: Th3 31, 2018 lúc 11:21 AM
--- Phiên bản máy phục vụ: 10.1.31-MariaDB
--- Phiên bản PHP: 5.6.34
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th3 31, 2018 lúc 02:12 PM
+-- Phiên bản máy phục vụ: 10.1.30-MariaDB
+-- Phiên bản PHP: 7.2.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `tinTuc_db`
+-- Cơ sở dữ liệu: `tintuc_db`
 --
 
 -- --------------------------------------------------------
@@ -143,6 +143,32 @@ INSERT INTO `users` (`idUser`, `ten`, `email`, `matKhau`, `create_at`, `update_a
 (1, 'Nguyễn Việt Hùng', 'hungnv@wru.vn', '123456', '2018-03-31 08:45:44', '0000-00-00 00:00:00'),
 (2, 'Lý Tuấn Linh', 'linhlt52@wru.vn', '654321', '2018-03-31 08:45:44', '0000-00-00 00:00:00'),
 (3, 'Nguyễn Tuấn Chinh', 'chinh97nd@gmail.com', '321654', '2018-03-31 08:46:32', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc đóng vai cho view `v_tintuc`
+-- (See below for the actual view)
+--
+CREATE TABLE `v_tintuc` (
+`ten` varchar(255)
+,`idTinTuc` int(11)
+,`idTheLoai` int(11)
+,`tieude` varchar(255)
+,`tieudekhongdau` varchar(255)
+,`tomtat` text
+,`noidung` longtext
+,`hinh` varchar(255)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc cho view `v_tintuc`
+--
+DROP TABLE IF EXISTS `v_tintuc`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_tintuc`  AS  select `theloai`.`ten` AS `ten`,`tintuc`.`idTinTuc` AS `idTinTuc`,`tintuc`.`idTheLoai` AS `idTheLoai`,`tintuc`.`tieude` AS `tieude`,`tintuc`.`tieudekhongdau` AS `tieudekhongdau`,`tintuc`.`tomtat` AS `tomtat`,`tintuc`.`noidung` AS `noidung`,`tintuc`.`hinh` AS `hinh` from (`theloai` join `tintuc`) where (`theloai`.`idTheLoai` = `tintuc`.`idTheLoai`) ;
 
 --
 -- Chỉ mục cho các bảng đã đổ
