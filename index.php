@@ -6,6 +6,9 @@
   $noi_dung = $c_tintuc->index();
   $menu = $noi_dung['menu'];
   $tintuc = $noi_dung['tintuc'];
+  $slide = $noi_dung['slide'];
+
+
  ?>
 <!DOCTYPE html>
 <html>
@@ -36,16 +39,13 @@
         foreach ($menu as $mn){
           ?>
           <li class ="menu1">
-            <a><?=$mn->ten?></a>  
+            <a href="loaitin.php?id_loai=<?=$mn->idTheLoai?>"><?=$mn->ten?></a>  
           </li>
           <?php
         }
        ?>
       </ul>
-    </div>  
-
-
-
+    </div>
   </div>
 
   <div id="space"></div> <br>
@@ -63,31 +63,31 @@
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
+      <?php 
+        for($i=0; $i< count($slide); $i++){
+          if($i==0){
+            ?>
+            <div class="item active">
+              <img src="public/img/<?=$slide[$i]->hinh?>" style="width:100%; height: 200px">
+              <div class="carousel-caption">
+                <p><?=$slide[$i]->ten?></p>
+              </div>
+            </div>
+            <?php
+          }
+          else{
+            ?>
+              <div class="item">
+                <img src="public/img/<?=$slide[$i]->hinh?>"style="width:100%; height: 200px">
+                <div class="carousel-caption">
+                  <p><?=$slide[$i]->ten?></p>
+                </div>
+              </div>
+            <?php
+          }
+        }
+       ?>
 
-      <div class="item active">
-        <img src="public/img/3.jpg" alt="Los Angeles" style="width:100%; height: 200px">
-        <div class="carousel-caption">
-          <a href="#"><h3>Los Angeles</h3></a>
-          <p>LA is always so much fun!</p>
-        </div>
-      </div>
-
-      <div class="item">
-         <img src="public/img/4.jpg" alt="Los Angeles" style="width:100%; height: 200px">
-        <div class="carousel-caption">
-          <h3>Chicago</h3>
-          <p>Thank you, Chicago!</p>
-        </div>
-      </div>
-    
-      <div class="item">
-         <img src="public/img/5.jpg" alt="Los Angeles" style="width:100%; height: 200px">
-        <div class="carousel-caption">
-          <h3>New York</h3>
-          <p>We love the Big Apple!</p>
-        </div>
-      </div>
-  
     </div>
 
     <!-- Left and right controls -->
@@ -111,13 +111,13 @@
               foreach ($tintuc as $tt){
                 ?>
                 <div id="mag" class="col-sm-12">
-                  <a id="tieude"><h2>Thể loại</h2></a>
+                  <a id="tieude"><h2><?=$tt->ten?></h2></a>
                   <div  id="anh" class="col-sm-5">
-                   <img src="public/img/noidung2.jpg">
+                   <img src="public/img/<?=$tt->hinh?>">
                   </div>
                   <div class="col-sm-7">
-                    <a href="#" class="tieude"><h4><?=$tt->tieude?></h4></a>
-                    <p class="noidung">Nội dung</p>
+                    <a href="chitiettintuc.php?id_tin=<?=$tt->idTinTuc?>" class="tieude"><h4><?=$tt->tieude?></h4></a>
+                    <p class="tomtat"><?=$tt->tomtat?></p>
                     <button type="button" class="btn">Chi tiết</button>
                   </div>
                 </div>

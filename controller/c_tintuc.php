@@ -7,7 +7,27 @@ class C_tintuc{
 		$m_tintuc = new M_tintuc();
 		$menu = $m_tintuc->getMenu();
 		$tintuc = $m_tintuc->getTintuc();
-		return array('menu'=>$menu,'tintuc'=>$tintuc);
+		$slide = $m_tintuc->getSlide();
+		return array('menu'=>$menu,'tintuc'=>$tintuc,'slide'=>$slide);
+	}
+
+
+	// Lấy chi tiết tin tức cho vào biến 
+	function chitiettin(){
+		$id_tin = $_GET['id_tin'];
+		$m_tintuc = new M_tintuc();
+		$chitiettin = $m_tintuc->getChiTietTin($id_tin); 
+		return array('chitiettin'=>$chitiettin);
+	}
+
+
+	function loaitin(){
+		$id_loai = $_GET['id_loai'];
+		$m_tintuc = new M_tintuc();
+		$loaitin = $m_tintuc->getLoaiTin($id_loai);
+		return array('loaitin'=>$loaitin);
+
+
 	}
 }
 

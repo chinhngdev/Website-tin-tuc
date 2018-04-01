@@ -15,8 +15,7 @@ body {
 	width: 100%;
 	background-color: #F0a62b;
 }
-/*scroll*/
-	
+
 
 /*logo*/
 #logo {
@@ -57,6 +56,7 @@ body {
 	color: #333;
 	transition: all 0.25s;
 	display: block;
+	text-decoration: none;
 }
 
 
@@ -64,7 +64,7 @@ body {
 
 /*space*/
 #space {
-	height: 60px;
+	height: 50px;
 	background-color: #D3D3D3;
 }
 
@@ -110,6 +110,11 @@ body {
 	width: 300px;
 }
 
+#anhchitiet{
+	width: 700px;
+	height: auto;
+}
+
 /*slide*/
 #slide {
 	width: 100%;
@@ -139,6 +144,10 @@ body {
 	border: 1px solid #dddfe2;
     box-shadow: 2px 3px #e9ebee;
     margin: 10px;
+}
+
+#quangcao img{
+	width: 250px;
 }
 
 /*footer*/
