@@ -3,7 +3,7 @@ class database{
     public $_dbh = '';
     public $_sql = '';
     public $_cursor = NULL;        
-    
+    //Hàm nối database
     public function database() {
         
 		try{
@@ -78,7 +78,7 @@ class database{
         return $this->_cursor;
     }
     
-    //Funtion load datas on table
+    //Lấy dữ liệu từ mọi dòng trên mảng
     public function loadAllRows($options=array()) {
         if(!$options) {
             if(!$result = $this->execute())
@@ -91,7 +91,7 @@ class database{
         return $result->fetchAll(PDO::FETCH_OBJ);
     }
     
-    //Funtion load 1 data on the table
+    //Lấy data từ 1 dòng trên mảng
     public function loadRow($option=array()) {
         if(!$option) {
             if(!$result = $this->execute())
@@ -104,22 +104,6 @@ class database{
         return $result->fetch(PDO::FETCH_OBJ);
     }
     
-    //Function count the record on the table
-    public function loadRecord($option=array()) {
-        if(!$option) {
-            if(!$result = $this->execute())
-                return false;
-        }
-        else {
-            if(!$result = $this->execute($option))
-                return false;
-        }
-        return $result->fetch(PDO::FETCH_COLUMN);
-    }
-    
-    public function getLastId() {
-        return $this->_dbh->lastInsertId();
-    }
     
     public function disconnect() {
         $this->_dbh = NULL;

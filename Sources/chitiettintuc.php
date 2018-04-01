@@ -1,15 +1,12 @@
 <?php 
   include('controller/c_tintuc.php');
-
-  //In nội dung từ trong database dùng hàm C_tintuc
+  //Dùng hàm trong controller
   $c_tintuc = new C_tintuc();
   $noi_dung = $c_tintuc->index();
   $menu = $noi_dung['menu'];
   $tintucs = $c_tintuc->chitiettin();
   $tin = $tintucs['chitiettin'];
-
- ?>
-
+?>
 
 <!DOCTYPE html>
 <html>
@@ -39,7 +36,8 @@
         foreach ($menu as $mn){
           ?>
           <li class ="menu1">
-            <a><?=$mn->ten?></a>  
+            <!--Lấy tên từ cột thể loại trong databse cho ra menu-->
+            <a href="loaitin.php?id_loai=<?=$mn->idTheLoai?>"><?=$mn->ten?></a>  
           </li>
           <?php
         }
@@ -47,11 +45,10 @@
       </ul>
     </div>  
 	</div>
+  
   <div id="space"></div> <br>
-
-  	
-
-    <!-- Nội dung -->
+  
+  <!-- Nội dung -->
 	<div id="content col-sm-12">
 		<div class="col-sm-2"></div>
 		<div class="center col-sm-7">
@@ -61,10 +58,13 @@
 					<div class="row">
 					<div class="col-md-12">
 						<h3>
+              <!--Lấy tên từ cột tin tức trong database cho ra content-->
 							<?=$tin->ten?>
 						</h3>
+            <!--Lấy ảnh từ cột tin tức cho ra content-->
 						<img id="anhchitiet" src="public/img/<?=$tin->hinh?>"/>
 						<p>
+              <!--Lấy dữ liệu từ cột nội dung trong bảng tin tức cho ra content-->
 							<?=$tin->noidung?>
 						</p>
 					</div>
@@ -74,22 +74,19 @@
 				
 			 ?>
 
-			</div>
-
+		</div>
+    <!--Quảng cáo--> 
 		<div id="quangcao" class="col-sm-3">
 			<img src="public/img/quangcao2.jpg">
 		</div>
 
-
-
-
-	 <!--footer -->
+	<!--footer -->
 	<div id="footer">
     <img src="public/img/logo.jpg" alt="logo"/>
     <p>© Copyright 2018 - BÁO MỚI 24H</p>
 	</div>
   
-
+  <script scr="public/js/myscript.js"></script>
   <script scr="public/js/bootstrap.js"></script>
   <script src="public/js/jquery.min.js"></script>
   <script src="public/js/bootstrap.min.js"></script>
