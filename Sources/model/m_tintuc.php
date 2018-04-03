@@ -33,6 +33,23 @@ class M_tintuc extends database{
 		return $this->loadAllRows(array($id));
 
 	}
+
+	function getTin(){
+		$sql = "SELECT * FROM tintuc";
+		$this->setQuery($sql);
+		return $this->loadAllRows();
+	}
+
+	function getLoai(){
+		$sql = "SELECT * FROM theloai";
+		$this->setQuery($sql);
+		return $this->loadAllRows();
+	}
+	function getUser(){
+		$sql = "SELECT * FROM users";
+		$this->setQuery($sql);
+		return $this->loadAllRows();
+	}
 }
 
 	
