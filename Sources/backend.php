@@ -24,6 +24,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script scr="public/js/myscript.js"></script>
 
 </head>
 <body>
@@ -32,15 +33,16 @@
 	<div id="menu" class="menu1">
   	<ul>
     <li><a href="#" onclick="showManager('1')">Thể Loại</a></li>
-    <li><a href="#" onclick="showManager('3')">Tin Tức</a></li>
-    <li><a href="#" onclick="showManager('2')">Slide</a>
+    <li><a href="#" onclick="showManager('2')">Tin Tức</a></li>
+    <li><a href="#" onclick="showManager('3')">Slide</a>
     <li><a href="#" onclick="showManager('4')">User</a></li>
   	</ul>
 	</div>
 
 	<div class="container-fluid"></div>
+</div>
 <script>
-function showManager(id) {
+  function showManager(id) {
         var objHTTP = new XMLHttpRequest();
         objHTTP.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200)
